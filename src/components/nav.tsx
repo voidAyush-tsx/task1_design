@@ -41,10 +41,11 @@ const Nav = () => {
                 {link.name}
               </a>
             ))}
-            <button className="px-5 py-2 bg-red-500 text-white text-xl rounded-full font-semibold hover:bg-red-600 transition-colors">
-              Get A Quote
-            </button>
           </div>
+
+          <button className="hidden lg:flex items-center px-5 py-2 bg-red-500 text-white text-xl rounded-full font-semibold hover:bg-red-600 transition-colors">
+            Get A Quote
+          </button>
 
           <button
             className={`lg:hidden p-2 text-black cursor-pointer hover:text-red-500 z-[60] ${isOpen ? 'hidden' : ''}`}
