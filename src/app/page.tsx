@@ -1,27 +1,28 @@
 "use client";
 import React from 'react';
 import { Star, GraduationCap } from 'lucide-react';
+import Image from 'next/image';
 import Nav from '../components/nav';
 
 export default function Home() {
   const features = [
     {
-      image: <img src="/feature_1.png" alt="Resume" className="w-3xs mx-auto" />,
+      image: <Image src="/feature_1.png" alt="Resume" width={200} height={150} className="w-3xs mx-auto" />,
       title: "A Resume Format That Gets You Interviews",
       description: "Get a professionally written, keyword-optimized resume that lands in recruiter inboxes."
     },
     {
-      image: <img src="/feature_2.png" alt="Cover Letter" className="w-3xs mx-auto" />,
+      image: <Image src="/feature_2.png" alt="Cover Letter" width={200} height={150} className="w-3xs mx-auto" />,
       title: "A Cover Letter Style That Stands Out Strong",
       description: "Stand out with a cover letter that speaks directly to the role and reflects your strengths."
     },
     {
-      image: <img src="/feature_3.png" alt="LinkedIn" className="w-3xs mx-auto" />,
+      image: <Image src="/feature_3.png" alt="LinkedIn" width={200} height={150} className="w-3xs mx-auto" />,
       title: "A LinkedIn Profile That Works For You",
       description: "Attract the right eyes, start conversations, and show up in recruiter searches."
     },
     {
-      image: <img src="/feature_4.png" alt="Interview" className="w-3xs mx-auto" />,
+      image: <Image src="/feature_4.png" alt="Interview" width={200} height={150} className="w-3xs mx-auto" />,
       title: "An Interview Strategy That Builds Confidence",
       description: "Interview preparation with real HR professionals so you speak clearly confidently."
     }
@@ -30,23 +31,22 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white font-figtree">
       <Nav />
-      <section className="bg-gradient-to-br from-pink-100 to-pink-200 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="bg-gradient-to-br from-pink-100 to-pink-200 text-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 lg:space-y-8">
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl text font-bold leading-tight">
                   Your Resume
                   <br />
-                  <span className="text-red-500">Deserves A Yes</span> Let's
+                  <span className="text-[#FA1239]">Deserves A Yes</span> Let's
                   <br />
                   Make It Happen
                 </h1>
               </div>
               
-              <div className="space-y-4 text-gray-700 text-sm sm:text-base max-w-xl">
-                <p>If Your Resume Isn't Getting Responses, It's Time For An Upgrade.</p>
-                <p>Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.</p>
+              <div className="space-y-4 text-sm sm:text-base max-w-xl">
+                <p>If Your Resume Isn't Getting Responses, It's Time For An Upgrade. Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.</p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">

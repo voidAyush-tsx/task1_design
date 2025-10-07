@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { Menu, X, Home as HomeIcon, Info, Briefcase, DollarSign, HelpCircle } from 'lucide-react';
+import Image from 'next/image';
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,15 +29,7 @@ const Nav = () => {
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 font-figtree">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
-              <div className="w-6 h-6 border-2 border-white rounded-full" style={{ borderRadius: '50% 50% 0 50%' }}></div>
-            </div>
-            <div>
-              <div className="font-bold text-lg sm:text-xl text-gray-800">COMPANY</div>
-              <div className="text-xs text-gray-600">business tagline</div>
-            </div>
-          </div>
+          <Image src="/logo.png" alt="Company logo" width={200} height={58} className="w-48 object-cover" priority />
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -87,15 +80,7 @@ const Nav = () => {
             </button>
           </div>
 
-          <div className="flex items-center gap-2 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
-              <div className="w-7 h-7 border-2 border-white rounded-full" style={{ borderRadius: '50% 50% 0 50%' }}></div>
-            </div>
-            <div>
-              <div className="font-bold text-xl text-gray-800">COMPANY</div>
-              <div className="text-xs text-gray-600">business tagline</div>
-            </div>
-          </div>
+          <Image src="/logo.png" alt="Company logo" width={200} height={58} className="w-36 mb-12 object-cover" priority />
 
           <div className="flex flex-col gap-8 flex-1">
             {navLinks.map((link) => {
