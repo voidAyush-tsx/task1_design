@@ -13,7 +13,6 @@ const Nav = () => {
     { name: 'FAQ', href: '#faq', icon: HelpCircle },
   ];
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -29,7 +28,6 @@ const Nav = () => {
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
               <div className="w-6 h-6 border-2 border-white rounded-full" style={{ borderRadius: '50% 50% 0 50%' }}></div>
@@ -40,7 +38,6 @@ const Nav = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -56,18 +53,17 @@ const Nav = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-red-500 z-[60]"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            className={`lg:hidden p-2 text-gray-700 hover:text-red-500 z-[60] ${isOpen ? 'hidden' : ''}`}
+            onClick={() => setIsOpen(true)}
+            aria-label="Open menu"
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <Menu size={28} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div 
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
@@ -75,14 +71,12 @@ const Nav = () => {
         />
       )}
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-gradient-to-b from-pink-50 to-pink-100 z-50 transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full px-6 py-6">
-          {/* Close Button - Top Right */}
           <div className="flex justify-end mb-8">
             <button
               className="p-2 text-red-500 hover:text-red-600"
@@ -93,7 +87,6 @@ const Nav = () => {
             </button>
           </div>
 
-          {/* Mobile Logo */}
           <div className="flex items-center gap-2 mb-12">
             <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
               <div className="w-7 h-7 border-2 border-white rounded-full" style={{ borderRadius: '50% 50% 0 50%' }}></div>
@@ -104,7 +97,6 @@ const Nav = () => {
             </div>
           </div>
 
-          {/* Mobile Nav Links */}
           <div className="flex flex-col gap-8 flex-1">
             {navLinks.map((link) => {
               const Icon = link.icon;
@@ -122,7 +114,6 @@ const Nav = () => {
             })}
           </div>
 
-          {/* Mobile CTA Button */}
           <button 
             className="w-full py-4 bg-red-500 text-white rounded-full font-bold text-lg hover:bg-red-600 transition-colors shadow-lg mb-6"
             onClick={() => setIsOpen(false)}

@@ -1,26 +1,9 @@
 "use client";
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Star, GraduationCap } from 'lucide-react';
 import Nav from '../components/nav';
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    // Simple fade-in animations on mount
-    if (heroRef.current) {
-      heroRef.current.style.opacity = '0';
-      heroRef.current.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        if (heroRef.current) {
-          heroRef.current.style.transition = 'all 0.8s ease-out';
-          heroRef.current.style.opacity = '1';
-          heroRef.current.style.transform = 'translateY(0)';
-        }
-      }, 100);
-    }
-  }, []);
-
   const features = [
     {
       image: "👤",
@@ -47,11 +30,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Nav />
-     {/* Hero Section */}
       <section className="bg-gradient-to-br from-pink-100 to-pink-200 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center" ref={heroRef}>
-            {/* Left Content */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-6 lg:space-y-8">
               <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -69,24 +50,21 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-3 bg-white text-red-500 border-2 border-red-500 rounded-full font-semibold hover:bg-red-50 transition-colors">
+                <button className="px-8 py-3 bg-white text-red-500 border-2 border-red-500 rounded-full font-semibold">
                   RESUME PAKAGES
                 </button>
-                <button className="px-8 py-3 bg-red-500 text-white rounded-full font-semibold hover:bg-red-600 transition-colors">
+                <button className="px-8 py-3 bg-red-500 text-white rounded-full font-semibold">
                   CONTACT US
                 </button>
               </div>
             </div>
 
-            {/* Right Content - Image with Stats */}
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative">
-                {/* Main Image Placeholder */}
                 <div className="w-72 h-96 sm:w-80 sm:h-[28rem] bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-end justify-center overflow-hidden">
                   <div className="text-center text-6xl pb-8">👩‍🎓</div>
                 </div>
 
-                {/* Rating Card */}
                 <div className="absolute top-16 -left-4 sm:left-0 bg-white rounded-2xl shadow-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center gap-3">
                   <div className="text-3xl sm:text-4xl font-bold text-teal-500">4.9</div>
                   <div>
@@ -99,7 +77,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Resume Count Card */}
                 <div className="absolute bottom-8 -right-4 sm:right-0 bg-white rounded-2xl shadow-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center gap-3">
                   <GraduationCap className="w-8 h-8 sm:w-10 sm:h-10 text-red-500" />
                   <div>
@@ -113,7 +90,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What You Get Section */}
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -131,7 +107,7 @@ export default function Home() {
             {features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl p-6 sm:p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-gray-100"
               >
                 <div className="text-6xl sm:text-7xl mb-6">{feature.image}</div>
                 <h3 className="text-lg sm:text-xl font-bold mb-4 text-gray-800 leading-snug">
