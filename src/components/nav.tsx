@@ -36,18 +36,18 @@ const Nav = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-red-500 font-medium transition-colors"
+                className="text-[#282828] text-[18px] hover:text-red-500 font-medium transition-colors"
               >
                 {link.name}
               </a>
             ))}
-            <button className="px-6 py-2.5 bg-red-500 text-white rounded-full font-semibold hover:bg-red-600 transition-colors">
+            <button className="px-5 py-2 bg-red-500 text-white text-xl rounded-full font-semibold hover:bg-red-600 transition-colors">
               Get A Quote
             </button>
           </div>
 
           <button
-            className={`lg:hidden p-2 text-gray-700 hover:text-red-500 z-[60] ${isOpen ? 'hidden' : ''}`}
+            className={`lg:hidden p-2 text-black cursor-pointer hover:text-red-500 z-[60] ${isOpen ? 'hidden' : ''}`}
             onClick={() => setIsOpen(true)}
             aria-label="Open menu"
             aria-expanded={isOpen}
@@ -59,7 +59,7 @@ const Nav = () => {
 
       {isOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          className="lg:hidden fixed inset-0 bg- bg-opacity-50 z-40 cursor-pointer transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -72,7 +72,7 @@ const Nav = () => {
         <div className="flex flex-col h-full px-6 py-6">
           <div className="flex justify-end mb-8">
             <button
-              className="p-2 text-red-500 hover:text-red-600"
+              className="p-2 cursor-pointer text-red-500 hover:text-red-600"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
@@ -89,7 +89,7 @@ const Nav = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center gap-4 text-gray-800 hover:text-red-500 font-semibold text-lg transition-colors"
+                  className="flex items-center gap-4 text-[#282828] text-[18px] hover:text-red-500 font-semibold transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <Icon size={24} className="text-red-500" />
