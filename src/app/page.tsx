@@ -1,103 +1,154 @@
+"use client";
+import React, { useEffect, useRef } from 'react';
+import { Star, GraduationCap } from 'lucide-react';
+import Nav from '../components/nav';
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const heroRef = useRef<HTMLDivElement>(null);
+  const featuresRef = useRef<HTMLDivElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  useEffect(() => {
+    // Simple fade-in animations on mount
+    if (heroRef.current) {
+      heroRef.current.style.opacity = '0';
+      heroRef.current.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        if (heroRef.current) {
+          heroRef.current.style.transition = 'all 0.8s ease-out';
+          heroRef.current.style.opacity = '1';
+          heroRef.current.style.transform = 'translateY(0)';
+        }
+      }, 100);
+    }
+  }, []);
+
+  const features = [
+    {
+      image: "👤",
+      title: "A Resume Format That Gets You Interviews",
+      description: "Get a professionally written, keyword-optimized resume that lands in recruiter inboxes."
+    },
+    {
+      image: "✉️",
+      title: "A Cover Letter Style That Stands Out Strong",
+      description: "Stand out with a cover letter that speaks directly to the role and reflects your strengths."
+    },
+    {
+      image: "📱",
+      title: "A LinkedIn Profile That Works For You",
+      description: "Attract the right eyes, start conversations, and show up in recruiter searches."
+    },
+    {
+      image: "💼",
+      title: "An Interview Strategy That Builds Confidence",
+      description: "Interview preparation with real HR professionals so you speak clearly confidently."
+    }
+  ];
+
+  return (
+    <>
+      <Nav />
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-pink-100 to-pink-200 pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center" ref={heroRef}>
+              {/* Left Content */}
+              <div className="space-y-6 lg:space-y-8">
+                <div>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                    Your Resume
+                    <br />
+                    <span className="text-red-500">Deserves A Yes</span> Let's
+                    <br />
+                    Make It Happen
+                  </h1>
+                </div>
+                
+                <div className="space-y-4 text-gray-700 text-sm sm:text-base max-w-xl">
+                  <p>If Your Resume Isn't Getting Responses, It's Time For An Upgrade.</p>
+                  <p>Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.</p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="px-8 py-3 bg-white text-red-500 border-2 border-red-500 rounded-full font-semibold hover:bg-red-50 transition-colors">
+                    RESUME PAKAGES
+                  </button>
+                  <button className="px-8 py-3 bg-red-500 text-white rounded-full font-semibold hover:bg-red-600 transition-colors">
+                    CONTACT US
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Content - Image with Stats */}
+              <div className="relative flex justify-center lg:justify-end">
+                <div className="relative">
+                  {/* Main Image Placeholder */}
+                  <div className="w-72 h-96 sm:w-80 sm:h-[28rem] bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-end justify-center overflow-hidden">
+                    <div className="text-center text-6xl pb-8">👩‍🎓</div>
+                  </div>
+
+                  {/* Rating Card */}
+                  <div className="absolute top-16 -left-4 sm:left-0 bg-white rounded-2xl shadow-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center gap-3">
+                    <div className="text-3xl sm:text-4xl font-bold text-teal-500">4.9</div>
+                    <div>
+                      <div className="flex gap-0.5 mb-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <div className="text-xs sm:text-sm font-semibold text-gray-700">Instructor Rating</div>
+                    </div>
+                  </div>
+
+                  {/* Resume Count Card */}
+                  <div className="absolute bottom-8 -right-4 sm:right-0 bg-white rounded-2xl shadow-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center gap-3">
+                    <GraduationCap className="w-8 h-8 sm:w-10 sm:h-10 text-red-500" />
+                    <div>
+                      <div className="text-2xl sm:text-3xl font-bold text-gray-800">260+</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Online Resume<br/>Created</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What You Get Section */}
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white" ref={featuresRef}>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16">
+              <div className="inline-block bg-pink-100 text-sm font-semibold px-6 py-2 rounded-full mb-6">
+                What You Get
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                You're Not Just <span className="text-red-500">Another Applicant</span> And Your
+                <br className="hidden sm:block" />
+                Resume Shouldn't Look Like One
+              </h2>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {features.map((feature, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-2xl p-6 sm:p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                >
+                  <div className="text-6xl sm:text-7xl mb-6">{feature.image}</div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 text-gray-800 leading-snug">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
   );
-}
+};
