@@ -28,7 +28,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-figtree">
       <Nav />
       <section className="bg-gradient-to-br from-pink-100 to-pink-200 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
