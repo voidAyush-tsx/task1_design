@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Menu, X, Home as HomeIcon, Info, Briefcase, DollarSign, HelpCircle } from 'lucide-react';
+import { Menu, X, Home as HomeIcon, Info, HandHeart, Tag, MessageCircleQuestionMark  } from 'lucide-react';
 import Image from 'next/image';
 
 const Nav = () => {
@@ -9,9 +9,9 @@ const Nav = () => {
   const navLinks = [
     { name: 'Home', href: '#home', icon: HomeIcon },
     { name: 'About Us', href: '#about', icon: Info },
-    { name: 'Our Services', href: '#services', icon: Briefcase },
-    { name: 'Pricing', href: '#pricing', icon: DollarSign },
-    { name: 'FAQ', href: '#faq', icon: HelpCircle },
+    { name: 'Our Services', href: '#services', icon: HandHeart },
+    { name: 'Pricing', href: '#pricing', icon: Tag },
+    { name: 'FAQ', href: '#faq', icon: MessageCircleQuestionMark },
   ];
 
   useEffect(() => {
@@ -71,7 +71,9 @@ const Nav = () => {
         }`}
       >
         <div className="flex flex-col h-full px-6 py-6">
-          <div className="flex justify-end mb-8">
+          <div className="flex justify-between items-center mb-12">
+
+            <Image src="/logo.png" alt="Company logo" width={200} height={58} className="w-36 object-cover" priority />
             <button
               className="p-2 cursor-pointer text-red-500 hover:text-red-600"
               onClick={() => setIsOpen(false)}
@@ -81,7 +83,6 @@ const Nav = () => {
             </button>
           </div>
 
-          <Image src="/logo.png" alt="Company logo" width={200} height={58} className="w-36 mb-12 object-cover" priority />
 
           <div className="flex flex-col gap-8 flex-1">
             {navLinks.map((link) => {
@@ -90,10 +91,10 @@ const Nav = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center gap-4 text-[#282828] text-[18px] hover:text-red-500 font-semibold transition-colors"
+                  className="group flex items-center gap-4 text-[#282828] text-[18px] hover:text-red-500 font-semibold transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Icon size={24} className="text-red-500" />
+                  <Icon size={24} className="text-black group-hover:text-red-500" />
                   {link.name}
                 </a>
               );
