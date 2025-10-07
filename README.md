@@ -45,10 +45,4 @@ Visit `http://localhost:3000`
 
 The design uses soft pink gradients to create a welcoming, approachable feel while red accents drive attention to calls-to-action. The layout prioritizes clarity and conversion, guiding visitors from awareness to action.
 
-## 📄 License
-
-MIT License
-
 ---
-
-Built with ❤️ for helping professionals succeed

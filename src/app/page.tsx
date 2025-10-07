@@ -6,22 +6,22 @@ import Nav from '../components/nav';
 export default function Home() {
   const features = [
     {
-      image: "👤",
+      image: <img src="/feature_1.png" alt="Resume" className="w-3xs mx-auto" />,
       title: "A Resume Format That Gets You Interviews",
       description: "Get a professionally written, keyword-optimized resume that lands in recruiter inboxes."
     },
     {
-      image: "✉️",
+      image: <img src="/feature_2.png" alt="Cover Letter" className="w-3xs mx-auto" />,
       title: "A Cover Letter Style That Stands Out Strong",
       description: "Stand out with a cover letter that speaks directly to the role and reflects your strengths."
     },
     {
-      image: "📱",
+      image: <img src="/feature_3.png" alt="LinkedIn" className="w-3xs mx-auto" />,
       title: "A LinkedIn Profile That Works For You",
       description: "Attract the right eyes, start conversations, and show up in recruiter searches."
     },
     {
-      image: "💼",
+      image: <img src="/feature_4.png" alt="Interview" className="w-3xs mx-auto" />,
       title: "An Interview Strategy That Builds Confidence",
       description: "Interview preparation with real HR professionals so you speak clearly confidently."
     }
